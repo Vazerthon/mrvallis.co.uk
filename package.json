@@ -1,0 +1,51 @@
+{
+  "name": "mrvallis.co.uk",
+  "description": "Personal website",
+  "version": "1.0.0",
+  "author": "Paul Vallis",
+  "dependencies": {
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
+    "css-in-js-media": "^1.0.15",
+    "eslint-config-airbnb": "^18.2.1",
+    "focus-trap-react": "^8.4.2",
+    "gatsby": "^2.30.1",
+    "gatsby-image": "^2.9.0",
+    "gatsby-plugin-emotion": "^5.2.0",
+    "gatsby-plugin-netlify": "^2.9.0",
+    "gatsby-plugin-netlify-cms": "^4.8.0",
+    "gatsby-plugin-netlify-cms-paths": "^1.3.0",
+    "gatsby-plugin-react-helmet": "^3.8.0",
+    "gatsby-plugin-sharp": "^2.12.0",
+    "gatsby-remark-copy-linked-files": "^2.8.0",
+    "gatsby-remark-images": "^3.9.0",
+    "gatsby-remark-relative-images": "^2.0.2",
+    "gatsby-source-filesystem": "^2.9.0",
+    "gatsby-transformer-remark": "^2.14.0",
+    "gatsby-transformer-sharp": "^2.10.0",
+    "netlify-cms-app": "^2.14.10",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-feather": "^2.0.9",
+    "react-helmet": "^6.1.0",
+    "react-masonry-component": "^6.2.1",
+    "uuid": "^8.3.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "clean": "gatsby clean",
+    "start": "npm run develop",
+    "build": "npm run clean && gatsby build",
+    "develop": "npm run clean && gatsby develop",
+    "lint": "eslint --ext .js ."
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "prettier": "^2.2.1"
+  }
+}

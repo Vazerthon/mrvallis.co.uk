@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: master
+  commit_messages:
+    create: 'Create {{collection}} “{{slug}}”'
+    update: 'Update {{collection}} “{{slug}}”'
+    delete: 'Delete {{collection}} “{{slug}}”'
+    uploadMedia: '[skip ci] Upload “{{path}}”'
+    deleteMedia: '[skip ci] Delete “{{path}}”'
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/index.md"
+        label: "Main Page"
+        name: "index"
+        fields:
+          - {label: "QueryKey", name: "queryKey", widget: "hidden", default: "main-page"}
+          - {label: Title, name: title, widget: string}
+          - {label: Heading, name: heading, widget: string}
+          - {label: About, name: about, widget: text}
+          - {label: Picture, name: picture, widget: image}
+          - {label: Contact, name: contact, widget: object, fields: [{label: Phone, name: phone, widget: string}, {label: Email, name: email, widget: string}, {label: Insta, name: insta, widget: string}, {label: Facebook, name: facebook, widget: string}, {label: Twitter, name: twitter, widget: string}, {label: GitHub, name: github, widget: string}, {label: Blurb, name: blurb, widget: text}]}
+          - {label: Hidden, name: hidden, widget: object, fields: [{label: Page Description, name: pageDescription, widget: text}, {label: Keywords, name: keywords, widget: string}]}
+  - name: "gallery-picture"
+    label: "Gallery Pictures"
+    folder: "src/img/gallery"
+    create: true
+    fields:
+      - {label: "QueryKey", name: "queryKey", widget: "hidden", default: "gallery-picture"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list", default: []}
