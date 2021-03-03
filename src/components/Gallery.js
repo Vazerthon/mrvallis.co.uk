@@ -130,6 +130,7 @@ export default function Gallery({ images }) {
         </Col>
         <Col css={lessThanDesktop}>
           <Select
+            aria-label="Select gallery filter"
             value={activeTag}
             onChange={({ currentTarget }) => setActiveTag(currentTarget.value)}
           >
