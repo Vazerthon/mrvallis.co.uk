@@ -7,4 +7,5 @@ description: London's iconic clock tower shot in a long exposure from the
 tags:
   - Travel
   - Monochrome
+  - City
 ---
