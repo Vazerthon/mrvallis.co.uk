@@ -7,4 +7,5 @@ description: View East through a stained glass window from within Palais des
 tags:
   - Travel
   - Landscape
+  - City
 ---
