@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import Image from 'gatsby-image';
 import media from 'css-in-js-media';
 import theme from './theme';
+import useIsClient from '../hooks/useIsClient';
 
 const PictureDesktop = styled(Image)`
   float: right;
@@ -23,11 +24,15 @@ const PictureMobile = styled(Image)`
 `;
 
 export default function ProfilePicture({ picture }) {
+  if (!useIsClient()) {
+    return <></>;
+  }
+
   return (
     picture && (
       <>
-        <PictureDesktop fixed={picture.fixed.fixed} />
-        <PictureMobile fluid={picture.fluid.fluid} />
+        <PictureDesktop fixed={picture.fixed.fixed} alt="" />
+        <PictureMobile fluid={picture.fluid.fluid} alt="" />
       </>
     )
   );

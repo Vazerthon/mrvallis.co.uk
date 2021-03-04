@@ -7,6 +7,7 @@ import Link from './Link';
 import theme from './theme';
 import useWindow from '../hooks/useWindow';
 import { BurgerMenu, Close } from './Icons';
+import useIsClient from '../hooks/useIsClient';
 
 const List = styled.ul`
   list-style: none;
@@ -73,8 +74,11 @@ export default function Nav({ className }) {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const toggleDrawer = () => setMobileDrawerOpen(!mobileDrawerOpen);
   const Wrapper = mobileDrawerOpen ? FocusTrap : Fragment;
-
   const activeUrl = useWindow()?.location?.hash;
+
+  if (!useIsClient()) {
+    return <></>;
+  }
 
   return (
     <Wrapper>
