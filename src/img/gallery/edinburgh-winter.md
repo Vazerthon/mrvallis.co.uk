@@ -7,4 +7,6 @@ description: The iconic Balmoral Hotel Clock and Princes Street on a winters day
 tags:
   - Scotland
   - Landscape
+  - City
+  - Monochrome
 ---
