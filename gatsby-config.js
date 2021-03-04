@@ -3,10 +3,10 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     {
-      resolve: `gatsby-plugin-netlify-cms-paths`,
+      resolve: 'gatsby-plugin-netlify-cms-paths',
       options: {
         // Path to your Netlify CMS config file
-        cmsConfig: `/static/admin/config.yml`,
+        cmsConfig: '/static/admin/config.yml',
       },
     },
     {
@@ -33,6 +33,7 @@ module.exports = {
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-transformer-remark',
       options: {

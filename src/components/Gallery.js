@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import media, { getBreakPoints } from 'css-in-js-media';
 import Masonry from 'react-masonry-component';
-import Image from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
@@ -32,11 +32,11 @@ const lessThanDesktop = css`
   }
 `;
 
-const SmallImage = styled(Image)`
+const SmallImage = styled(GatsbyImage)`
   margin-right: ${theme.spacing.units(3)};
 `;
 
-const LargeImage = styled(Image)`
+const LargeImage = styled(GatsbyImage)`
   max-height: 70vh;
   img {
     object-fit: contain !important;
