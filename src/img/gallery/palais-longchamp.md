@@ -6,4 +6,5 @@ description: Palais Longchamp, Marsaille, France. Panoramic stitched from four
   horizontal frames.
 tags:
   - Travel
+  - City
 ---
