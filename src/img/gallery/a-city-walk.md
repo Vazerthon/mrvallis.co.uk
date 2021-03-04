@@ -8,4 +8,5 @@ description: Looking South along the Thames Path from near Westminster Bridge,
 tags:
   - Travel
   - Monochrome
+  - City
 ---
