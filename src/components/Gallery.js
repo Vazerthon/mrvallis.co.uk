@@ -175,8 +175,8 @@ export default function Gallery({ images }) {
             <LargeImage fluid={activeImage.img} alt={activeImage.description} />
             <LargeImageTextContainer>
               <div>
-                <H2 dark>{activeImage.title}</H2>
-                <Paragraph dark>{activeImage.description}</Paragraph>
+                <H2 dark smallOnMobile>{activeImage.title}</H2>
+                <Paragraph dark smallOnMobile>{activeImage.description}</Paragraph>
               </div>
             </LargeImageTextContainer>
           </Modal>
