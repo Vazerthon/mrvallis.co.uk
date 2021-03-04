@@ -8,4 +8,5 @@ description: Sunrise over the Old Town of Edinburgh with a light dusting of
 tags:
   - Scotland
   - Landscape
+  - City
 ---
