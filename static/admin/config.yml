@@ -37,5 +37,5 @@ collections:
       - label: "Description"
         name: "description"
         widget: "string"
-        pattern: ['.{0,100}', "Must have at least 20 characters"]
+        pattern: [".{0,100}", "100 characters max"]
       - {label: "Tags", name: "tags", widget: "list", default: []}
