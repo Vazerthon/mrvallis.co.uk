@@ -20,9 +20,8 @@ export default function IndexPage({ data }) {
 
   const galleryData = data.galleryData.edges;
   const gallery = galleryData.map(({ node }) => ({
-    small: node.frontmatter.small.childImageSharp.fixed,
-    medium: node.frontmatter.medium.childImageSharp.fixed,
-    large: node.frontmatter.large.childImageSharp.fluid,
+    small: node.frontmatter.small.childImageSharp.gatsbyImageData,
+    large: node.frontmatter.large.childImageSharp.gatsbyImageData,
     title: node.frontmatter.title,
     description: node.frontmatter.description,
     id: node.id,
@@ -79,80 +78,61 @@ IndexPage.propTypes = {
   }).isRequired,
 };
 
-export const pageQuery = graphql`
-  query IndexPageTemplate {
-    pageData: allMarkdownRemark(
-      filter: { frontmatter: { queryKey: { eq: "main-page" } } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            heading
-            about
-            contact {
-              phone
-              email
-              insta
-              facebook
-              github
-              twitter
-              blurb
-            }
-            hidden {
-              pageDescription
-              keywords
-            }
-            picture {
-              fixed: childImageSharp {
-                fixed(width: 400, height: 400) {
-                  ...GatsbyImageSharpFixed_withWebp
-                }
-              }
-              fluid: childImageSharp {
-                fluid(maxWidth: 400, maxHeight: 400) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
+export const pageQuery = graphql`query IndexPageTemplate {
+  pageData: allMarkdownRemark(
+    filter: {frontmatter: {queryKey: {eq: "main-page"}}}
+  ) {
+    edges {
+      node {
+        frontmatter {
+          title
+          heading
+          about
+          contact {
+            phone
+            email
+            insta
+            facebook
+            github
+            twitter
+            blurb
           }
-        }
-      }
-    }
-    galleryData: allMarkdownRemark(
-      filter: { frontmatter: { queryKey: { eq: "gallery-picture" } } }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            description
-            tags
-            small: image {
-              childImageSharp {
-                fixed(width: 100) {
-                  ...GatsbyImageSharpFixed_withWebp
-                }
-              }
-            }
-            medium: image {
-              childImageSharp {
-                fixed(width: 300) {
-                  ...GatsbyImageSharpFixed_withWebp
-                }
-              }
-            }
-            large: image {
-              childImageSharp {
-                fluid(maxWidth: 1000) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
+          hidden {
+            pageDescription
+            keywords
+          }
+          picture {
+            fixed: childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, aspectRatio: 1)
             }
           }
         }
       }
     }
   }
+  galleryData: allMarkdownRemark(
+    filter: {frontmatter: {queryKey: {eq: "gallery-picture"}}}
+  ) {
+    edges {
+      node {
+        id
+        frontmatter {
+          title
+          description
+          tags
+          small: image {
+            childImageSharp {
+              gatsbyImageData(width: 150, layout: FIXED)
+            }
+          }
+          large: image {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH)
+            }
+          }
+        }
+      }
+    }
+  }
+}
 `;
