@@ -21,7 +21,6 @@ export default function IndexPage({ data }) {
   const galleryData = data.galleryData.edges;
   const gallery = galleryData.map(({ node }) => ({
     small: node.frontmatter.small.childImageSharp.gatsbyImageData,
-    medium: node.frontmatter.medium.childImageSharp.gatsbyImageData,
     large: node.frontmatter.large.childImageSharp.gatsbyImageData,
     title: node.frontmatter.title,
     description: node.frontmatter.description,
@@ -104,7 +103,7 @@ export const pageQuery = graphql`query IndexPageTemplate {
           }
           picture {
             fixed: childImageSharp {
-              gatsbyImageData(width: 400, height: 400, layout: FIXED)
+              gatsbyImageData(layout: FULL_WIDTH, aspectRatio: 1)
             }
           }
         }
@@ -123,12 +122,7 @@ export const pageQuery = graphql`query IndexPageTemplate {
           tags
           small: image {
             childImageSharp {
-              gatsbyImageData(width: 100, layout: FIXED)
-            }
-          }
-          medium: image {
-            childImageSharp {
-              gatsbyImageData(width: 300, layout: FIXED)
+              gatsbyImageData(width: 150, layout: FIXED)
             }
           }
           large: image {

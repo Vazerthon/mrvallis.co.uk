@@ -10,7 +10,6 @@
     "eslint-config-airbnb": "^18.2.1",
     "focus-trap-react": "^8.4.2",
     "gatsby": "^3.0.2",
-    "gatsby-image": "^3.0.0",
     "gatsby-plugin-emotion": "^6.0.0",
     "gatsby-plugin-image": "^1.0.0",
     "gatsby-plugin-netlify": "^3.0.0",

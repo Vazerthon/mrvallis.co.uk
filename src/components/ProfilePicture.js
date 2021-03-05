@@ -5,15 +5,14 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import theme from './theme';
 
 const PictureDesktop = styled(GatsbyImage)`
-  float: right;
   border-radius: 50%;
-  border: 4px solid ${theme.colour.cmyk.yellow};
+  border: ${theme.spacing.units(0.5)} solid ${theme.colour.cmyk.yellow};
 `;
 
 export default function ProfilePicture({ picture }) {
   return (
     picture && (
-      <PictureDesktop fixed={picture.fixed.fixed} alt="" />
+      <PictureDesktop image={picture.fixed.gatsbyImageData} alt="" />
     )
   );
 }

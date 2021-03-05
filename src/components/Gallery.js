@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import media, { getBreakPoints } from 'css-in-js-media';
+import media from 'css-in-js-media';
 import Masonry from 'react-masonry-component';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
@@ -32,10 +32,6 @@ const lessThanDesktop = css`
   }
 `;
 
-const SmallImage = styled(GatsbyImage)`
-  margin-right: ${theme.spacing.units(3)};
-`;
-
 const LargeImage = styled(GatsbyImage)`
   max-height: 70vh;
   img {
@@ -60,6 +56,17 @@ const LargeImageTextContainer = styled.div`
 
 const ImageWrapper = styled.div`
   margin: 0;
+  outline: none;
+
+  .gatsby-image-wrapper {
+    border: ${theme.spacing.units(0.5)} solid transparent;
+  }
+
+  :focus {
+    .gatsby-image-wrapper {
+      border-color: ${theme.colour.cmyk.cyan};
+    }
+  }
 `;
 
 const Grid = styled.div`
@@ -110,10 +117,11 @@ export default function Gallery({ images }) {
     Enter: handleOpenImageWithKeyboard,
   });
 
-  const { tablet } = getBreakPoints();
-
-  const allTags = deDupedList(images.flatMap(({ tags }) => tags)).sort(defaultSorting);
+  const allTags = deDupedList(images.flatMap(({ tags }) => tags)).sort(
+    defaultSorting,
+  );
   const filteredImages = images.filter(({ tags }) => tags.includes(activeTag));
+
   return (
     <Grid>
       <Filters>
@@ -136,35 +144,28 @@ export default function Gallery({ images }) {
             onChange={({ currentTarget }) => setActiveTag(currentTarget.value)}
           >
             {allTags.map((tag) => (
-              <option key={tag}>
-                {tag}
-              </option>
+              <option key={tag}>{tag}</option>
             ))}
           </Select>
         </Col>
       </Filters>
       <Pictures>
         <Masonry>
-          {filteredImages.map(({ small, medium, large, description, id, title }) => (
-            <ImageWrapper
-              key={id}
-              onClick={openModalFor({ img: large, description, title })}
-              onFocus={() => setFocusedImage({ img: large, description, title })}
-              onKeyDown={onKeyboardEvent}
-              tabIndex={0}
-            >
-              <SmallImage
-                fixed={[
-                  small,
-                  {
-                    ...medium,
-                    media: `(min-width: ${tablet}px)`,
-                  },
-                ]}
-                alt={description}
-              />
-            </ImageWrapper>
-          ))}
+          {filteredImages.map(
+            ({ small, large, description, id, title }) => (
+              <ImageWrapper
+                key={id}
+                onClick={openModalFor({ img: large, description, title })}
+                onFocus={() => setFocusedImage({ img: large, description, title })}
+                onKeyDown={onKeyboardEvent}
+                tabIndex={0}
+              >
+                <GatsbyImage
+                  image={small}
+                  alt={description}
+                />
+              </ImageWrapper>
+            ))}
         </Masonry>
         {activeImage && (
           <Modal
@@ -173,11 +174,15 @@ export default function Gallery({ images }) {
             onCloseClick={closeModal}
             contentContainerStyles={darkBackground}
           >
-            <LargeImage fluid={activeImage.img} alt={activeImage.description} />
+            <LargeImage image={activeImage.img} alt={activeImage.description} />
             <LargeImageTextContainer>
               <div>
-                <H2 dark smallOnMobile>{activeImage.title}</H2>
-                <Paragraph dark smallOnMobile>{activeImage.description}</Paragraph>
+                <H2 dark smallOnMobile>
+                  {activeImage.title}
+                </H2>
+                <Paragraph dark smallOnMobile>
+                  {activeImage.description}
+                </Paragraph>
               </div>
             </LargeImageTextContainer>
           </Modal>
