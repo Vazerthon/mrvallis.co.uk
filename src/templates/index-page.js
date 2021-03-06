@@ -102,8 +102,12 @@ export const pageQuery = graphql`query IndexPageTemplate {
             keywords
           }
           picture {
-            fixed: childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH, aspectRatio: 1)
+            childImageSharp {
+              gatsbyImageData(
+                width: 750
+                aspectRatio: 1
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }
@@ -122,12 +126,19 @@ export const pageQuery = graphql`query IndexPageTemplate {
           tags
           small: image {
             childImageSharp {
-              gatsbyImageData(width: 150, layout: FIXED)
+              gatsbyImageData(
+                width: 150
+                layout: FIXED
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
           large: image {
             childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH)
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                formats: [AUTO, WEBP, AVIF]
+              )
             }
           }
         }

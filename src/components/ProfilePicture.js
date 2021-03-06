@@ -12,7 +12,7 @@ const PictureDesktop = styled(GatsbyImage)`
 export default function ProfilePicture({ picture }) {
   return (
     picture && (
-      <PictureDesktop image={picture.fixed.gatsbyImageData} alt="" />
+      <PictureDesktop image={picture.childImageSharp.gatsbyImageData} alt="" />
     )
   );
 }
