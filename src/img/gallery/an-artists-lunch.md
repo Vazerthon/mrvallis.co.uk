@@ -5,6 +5,5 @@ title: An Artists Lunch
 description: A street artist takes a break for lunch. Budapest, Hungary
 tags:
   - Travel
-  - Landscape
   - Monochrome
 ---
