@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import media from 'css-in-js-media';
 import PropTypes from 'prop-types';

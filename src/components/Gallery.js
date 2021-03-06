@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import media from 'css-in-js-media';
 import Masonry from 'react-masonry-component';
@@ -58,7 +58,7 @@ const ImageWrapper = styled.div`
   margin: 0;
   outline: none;
   cursor: pointer;
-  
+
   .gatsby-image-wrapper {
     border: ${theme.spacing.units(0.5)} solid transparent;
   }
