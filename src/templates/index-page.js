@@ -106,7 +106,7 @@ export const pageQuery = graphql`query IndexPageTemplate {
               gatsbyImageData(
                 width: 750
                 aspectRatio: 1
-                formats: [AUTO, WEBP, AVIF]
+                formats: [AUTO, WEBP]
               )
             }
           }
@@ -129,7 +129,7 @@ export const pageQuery = graphql`query IndexPageTemplate {
               gatsbyImageData(
                 width: 150
                 layout: FIXED
-                formats: [AUTO, WEBP, AVIF]
+                formats: [AUTO, WEBP]
               )
             }
           }
@@ -137,7 +137,7 @@ export const pageQuery = graphql`query IndexPageTemplate {
             childImageSharp {
               gatsbyImageData(
                 layout: FULL_WIDTH
-                formats: [AUTO, WEBP, AVIF]
+                formats: [AUTO, WEBP]
               )
             }
           }
