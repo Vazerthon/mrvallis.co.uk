@@ -57,7 +57,8 @@ const LargeImageTextContainer = styled.div`
 const ImageWrapper = styled.div`
   margin: 0;
   outline: none;
-
+  cursor: pointer;
+  
   .gatsby-image-wrapper {
     border: ${theme.spacing.units(0.5)} solid transparent;
   }
