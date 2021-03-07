@@ -73,6 +73,9 @@ module.exports = {
         theme_color: theme.colour.cmyk.key,
         icon: 'src/img/favicon.png',
         display: 'standalone',
+        icon_options: {
+          purpose: 'any maskable',
+        },
       },
     },
     {
