@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { Global, css } from '@emotion/react';
+import useWindow from '../../hooks/useWindow';
 
 import theme from '../theme';
 
@@ -33,6 +34,9 @@ export default function PageContainer({
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={useWindow()?.location.href} />
       </Helmet>
       {children}
     </>
