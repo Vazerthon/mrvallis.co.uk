@@ -71,6 +71,7 @@ const ImageWrapper = styled.div`
 `;
 
 const Grid = styled.div`
+  content-visibility: auto;
   display: grid;
   grid-gap: ${theme.spacing.units(4)};
   grid-template-columns: 1fr;
