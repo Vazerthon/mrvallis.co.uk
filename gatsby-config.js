@@ -72,6 +72,7 @@ module.exports = {
         background_color: theme.colour.cmyk.yellow,
         theme_color: theme.colour.cmyk.key,
         icon: 'src/img/favicon.png',
+        display: 'standalone',
       },
     },
     {
