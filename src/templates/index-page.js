@@ -99,6 +99,9 @@ export const pageQuery = graphql`query IndexPageTemplate {
           hidden {
             pageDescription
             keywords
+            richPreviewImage {
+              publicURL
+            }
           }
           picture {
             childImageSharp {

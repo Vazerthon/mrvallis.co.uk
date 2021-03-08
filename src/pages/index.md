@@ -21,6 +21,7 @@ contact:
   github: "vazerthon"
   blurb: If you'd like to get in touch or take a look at other projects I'm involed in you can find me on GitHub or Twitter, or you can email me
 hidden:
-  pageDescription: "Portfolio site for Scottish amateur photographer Paul Vallis"
-  keywords: "photography, portfolio, gallery, photographer, photo, edinburgh, scotland"
+  pageDescription: "Just a guy on the internet who makes software for a living and take photos for fun"
+  keywords: "photography, portfolio, gallery, photographer, photo, edinburgh, scotland, software, JavaScript"
+  richPreviewImage: /img/me-tintype.jpg
 ---

@@ -11,6 +11,7 @@ export default function PageContainer({
   title,
   description,
   keywords,
+  richPreviewImage,
 }) {
   return (
     <>
@@ -37,6 +38,7 @@ export default function PageContainer({
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={useWindow()?.location.href} />
+        {richPreviewImage && <meta property="og:image" content={richPreviewImage.publicURL} />}
       </Helmet>
       {children}
     </>
@@ -48,4 +50,11 @@ PageContainer.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   keywords: PropTypes.string.isRequired,
+  richPreviewImage: PropTypes.shape({
+    publicURL: PropTypes.string,
+  }),
+};
+
+PageContainer.defaultProps = {
+  richPreviewImage: undefined,
 };

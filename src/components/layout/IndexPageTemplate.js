@@ -56,7 +56,7 @@ export default function IndexPageTemplate({
   gallery,
 }) {
   const { email, phone, insta, facebook, twitter, github, blurb } = contact;
-  const { keywords, pageDescription } = hidden;
+  const { keywords, pageDescription, richPreviewImage } = hidden;
 
   const contacts = [
     {
@@ -108,6 +108,7 @@ export default function IndexPageTemplate({
       title={title}
       description={pageDescription}
       keywords={keywords}
+      richPreviewImage={richPreviewImage}
     >
       <HeaderContainer>
         <NavContainer>
@@ -185,6 +186,9 @@ IndexPageTemplate.propTypes = {
   hidden: PropTypes.shape({
     keywords: PropTypes.string.isRequired,
     pageDescription: PropTypes.string.isRequired,
+    richPreviewImage: PropTypes.shape({
+      publicURL: PropTypes.string,
+    }),
   }).isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   picture: PropTypes.object.isRequired,
