@@ -38,7 +38,7 @@ export default function PageContainer({
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={useWindow()?.location.href} />
-        {richPreviewImage && <meta property="og:image" content={richPreviewImage.publicURL} />}
+        {richPreviewImage && <meta property="og:image" content={`https://mrvallis.co.uk${richPreviewImage.publicURL}`} />}
       </Helmet>
       {children}
     </>
