@@ -44,7 +44,8 @@
     "start": "npm run develop",
     "build": "gatsby build",
     "develop": "npm run clean && gatsby develop",
-    "lint": "eslint --ext .js ."
+    "lint": "eslint --ext .js .",
+    "serve": "gatsby serve"
   },
   "devDependencies": {
     "eslint": "^7.17.0",
