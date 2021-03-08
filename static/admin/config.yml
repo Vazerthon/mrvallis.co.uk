@@ -25,7 +25,10 @@ collections:
           - {label: About, name: about, widget: text}
           - {label: Picture, name: picture, widget: image}
           - {label: Contact, name: contact, widget: object, fields: [{label: Phone, name: phone, widget: string}, {label: Email, name: email, widget: string}, {label: Insta, name: insta, widget: string}, {label: Facebook, name: facebook, widget: string}, {label: Twitter, name: twitter, widget: string}, {label: GitHub, name: github, widget: string}, {label: Blurb, name: blurb, widget: text}]}
-          - {label: Hidden, name: hidden, widget: object, fields: [{label: Page Description, name: pageDescription, widget: text}, {label: Keywords, name: keywords, widget: string}]}
+          - label: "Hidden"
+            name: "hidden"
+            widget: "object"
+            fields: [{label: Page Description, name: pageDescription, widget: text}, {label: Keywords, name: keywords, widget: string}, {label: Rich Preview Image, name: richPreviewImage, widget: image}, {label: Page Title, name: pageTitle, widget: string}]
   - name: "gallery-picture"
     label: "Gallery Pictures"
     folder: "src/img/gallery"

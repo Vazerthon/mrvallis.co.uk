@@ -64,6 +64,10 @@ IndexPage.propTypes = {
               hidden: PropTypes.shape({
                 keywords: PropTypes.string,
                 pageDescription: PropTypes.string,
+                richPreviewImage: PropTypes.shape({
+                  publicURL: PropTypes.string,
+                }),
+                pageTitle: PropTypes.string,
               }),
             }),
           }),
@@ -99,6 +103,10 @@ export const pageQuery = graphql`query IndexPageTemplate {
           hidden {
             pageDescription
             keywords
+            richPreviewImage {
+              publicURL
+            }
+            pageTitle
           }
           picture {
             childImageSharp {
