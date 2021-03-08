@@ -7,7 +7,6 @@ import Link from './Link';
 import theme from './theme';
 import useWindow from '../hooks/useWindow';
 import { BurgerMenu, Close } from './Icons';
-import useIsClient from '../hooks/useIsClient';
 
 const List = styled.ul`
   list-style: none;
@@ -73,12 +72,9 @@ NavListItem.propTypes = {
 export default function Nav({ className }) {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const toggleDrawer = () => setMobileDrawerOpen(!mobileDrawerOpen);
+  const closeDrawer = () => setMobileDrawerOpen(false);
   const Wrapper = mobileDrawerOpen ? FocusTrap : Fragment;
   const activeUrl = useWindow()?.location?.hash;
-
-  if (!useIsClient()) {
-    return <></>;
-  }
 
   return (
     <Wrapper>
@@ -98,25 +94,25 @@ export default function Nav({ className }) {
             href="#home"
             active={activeUrl === '#home'}
             label="Home"
-            onClick={toggleDrawer}
+            onClick={closeDrawer}
           />
           <NavListItem
             href="#about"
             active={activeUrl === '#about'}
             label="About"
-            onClick={toggleDrawer}
+            onClick={closeDrawer}
           />
           <NavListItem
             href="#contact"
             active={activeUrl === '#contact'}
             label="Contact"
-            onClick={toggleDrawer}
+            onClick={closeDrawer}
           />
           <NavListItem
             href="#gallery"
             active={activeUrl === '#gallery'}
             label="Gallery"
-            onClick={toggleDrawer}
+            onClick={closeDrawer}
           />
         </List>
       </nav>
