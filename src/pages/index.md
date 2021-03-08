@@ -23,5 +23,6 @@ contact:
 hidden:
   pageDescription: "Just a guy on the internet who makes software for a living and take photos for fun"
   keywords: "photography, portfolio, gallery, photographer, photo, edinburgh, scotland, software, JavaScript"
+  pageTitle: "Mr. Vallis | Software & Photography"
   richPreviewImage: /img/me-tintype.jpg
 ---

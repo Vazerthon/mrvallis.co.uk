@@ -28,7 +28,7 @@ collections:
           - label: "Hidden"
             name: "hidden"
             widget: "object"
-            fields: [{label: Page Description, name: pageDescription, widget: text}, {label: Keywords, name: keywords, widget: string}, {label: Rich Preview Image, name: richPreviewImage, widget: image}]
+            fields: [{label: Page Description, name: pageDescription, widget: text}, {label: Keywords, name: keywords, widget: string}, {label: Rich Preview Image, name: richPreviewImage, widget: image}, {label: Page Title, name: pageTitle, widget: string}]
   - name: "gallery-picture"
     label: "Gallery Pictures"
     folder: "src/img/gallery"
