@@ -19,7 +19,7 @@ import {
 } from './Grid';
 
 import theme from '../theme';
-import { Email, Facebook, Insta, Phone, Twitter, GitHub } from '../Icons';
+import { Email, Twitter, GitHub } from '../Icons';
 import Paragraph from '../typography/Paragraph';
 import { H1, H2, H3 } from '../typography/Headings';
 import Link from '../Link';
@@ -55,7 +55,7 @@ export default function IndexPageTemplate({
   hidden,
   gallery,
 }) {
-  const { email, phone, insta, facebook, twitter, github, blurb } = contact;
+  const { email, twitter, github, blurb } = contact;
   const { keywords, pageDescription, richPreviewImage, pageTitle } = hidden;
 
   const contacts = [
@@ -65,27 +65,6 @@ export default function IndexPageTemplate({
       label: email,
       descriptiveLabel: 'Email',
       show: !!email,
-    },
-    {
-      Icon: Phone,
-      link: `tel:${phone}`,
-      label: phone,
-      descriptiveLabel: 'Phone',
-      show: !!phone,
-    },
-    {
-      Icon: Insta,
-      link: `https://www.instagram.com/${insta}`,
-      label: insta,
-      descriptiveLabel: 'Instagram',
-      show: !!insta,
-    },
-    {
-      Icon: Facebook,
-      link: `https://www.facebook.com/${facebook}`,
-      label: facebook,
-      descriptiveLabel: 'Facebook',
-      show: !!facebook,
     },
     {
       Icon: Twitter,
@@ -176,9 +155,6 @@ IndexPageTemplate.propTypes = {
   about: PropTypes.string.isRequired,
   contact: PropTypes.shape({
     email: PropTypes.string,
-    phone: PropTypes.string,
-    insta: PropTypes.string,
-    facebook: PropTypes.string,
     twitter: PropTypes.string,
     github: PropTypes.string,
     blurb: PropTypes.string.isRequired,

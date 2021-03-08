@@ -13,10 +13,7 @@ about: >-
 
 picture: /img/me-tintype.jpg
 contact:
-  phone: ""
   email: contact@mrvallis.co.uk
-  insta: ""
-  facebook: ""
   twitter: "vazerthon"
   github: "vazerthon"
   blurb: If you'd like to get in touch or take a look at other projects I'm involed in you can find me on GitHub or Twitter, or you can email me

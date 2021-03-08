@@ -52,9 +52,6 @@ IndexPage.propTypes = {
               about: PropTypes.string,
               contact: PropTypes.shape({
                 email: PropTypes.string,
-                phone: PropTypes.string,
-                insta: PropTypes.string,
-                facebook: PropTypes.string,
                 blurb: PropTypes.string,
                 twitter: PropTypes.string,
                 gitHub: PropTypes.string,
@@ -92,10 +89,7 @@ export const pageQuery = graphql`query IndexPageTemplate {
           heading
           about
           contact {
-            phone
             email
-            insta
-            facebook
             github
             twitter
             blurb
