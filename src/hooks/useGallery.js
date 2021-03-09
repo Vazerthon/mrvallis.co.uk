@@ -19,9 +19,18 @@ export default function useGallery(images) {
   const [activeImage, setActiveImage] = useState();
   const [focusedImage, setFocusedImage] = useState();
   const [activeTag, setActiveTag] = useState('Top Picks');
+  const { pathname, updatePath } = useWindow();
 
-  const openModalFor = (image) => () => setActiveImage(image);
-  const closeModal = () => setActiveImage(null);
+  const openModalFor = (image) => () => {
+    setInitialised(true);
+    updatePath(`/image/${kebabCase(image.title)}`);
+    setActiveImage(image);
+  };
+
+  const closeModal = () => {
+    updatePath('/');
+    setActiveImage(null);
+  };
 
   const handleOpenImageWithKeyboard = openModalFor(focusedImage);
   const { onKeyboardEvent } = useKeyboard({
@@ -31,7 +40,6 @@ export default function useGallery(images) {
   const allTags = allTagsIn(images);
   const filteredImages = images.filter(({ tags }) => tags.includes(activeTag));
 
-  const { pathname } = useWindow();
   useEffect(() => {
     if (initialised) {
       return;
