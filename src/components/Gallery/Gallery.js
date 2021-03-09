@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import media from 'css-in-js-media';
 import Masonry from 'react-masonry-component';
@@ -10,7 +9,7 @@ import Col from '../layout/Col';
 import Button from '../Button';
 import LargeImageModal from './LarageImageModal';
 
-import useKeyboard from '../../hooks/useKeyboard';
+import useGallery from '../../hooks/useGallery';
 
 import theme from '../theme';
 
@@ -74,26 +73,18 @@ const Select = styled.select`
   background-image: none;
 `;
 
-const deDupedList = (list) => Array.from(new Set(list));
-const defaultSorting = (a, b) => (a > b ? 1 : -1);
-
 export default function Gallery({ images }) {
-  const [activeImage, setActiveImage] = useState();
-  const [focusedImage, setFocusedImage] = useState();
-  const [activeTag, setActiveTag] = useState('Top Picks');
-
-  const openModalFor = (image) => () => setActiveImage(image);
-  const closeModal = () => setActiveImage(null);
-
-  const handleOpenImageWithKeyboard = openModalFor(focusedImage);
-  const { onKeyboardEvent } = useKeyboard({
-    Enter: handleOpenImageWithKeyboard,
-  });
-
-  const allTags = deDupedList(images.flatMap(({ tags }) => tags)).sort(
-    defaultSorting,
-  );
-  const filteredImages = images.filter(({ tags }) => tags.includes(activeTag));
+  const {
+    openModalFor,
+    closeModal,
+    keyboardHandlers,
+    allTags,
+    filteredImages,
+    activeImage,
+    activeTag,
+    setFocusedImage,
+    setActiveTag,
+  } = useGallery(images);
 
   return (
     <Grid>
@@ -130,7 +121,7 @@ export default function Gallery({ images }) {
                 key={id}
                 onClick={openModalFor({ img: large, description, title })}
                 onFocus={() => setFocusedImage({ img: large, description, title })}
-                onKeyDown={onKeyboardEvent}
+                onKeyDown={keyboardHandlers}
                 tabIndex={0}
               >
                 <GatsbyImage
