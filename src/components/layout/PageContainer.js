@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { Global, css } from '@emotion/react';
 import useWindow from '../../hooks/useWindow';
+import useRoutes from '../../hooks/useRoutes';
 
 import theme from '../theme';
 
@@ -13,7 +14,9 @@ export default function PageContainer({
   keywords,
   richPreviewImage,
 }) {
-  const { window } = useWindow();
+  const { currentPath } = useWindow();
+  const { buildPublicUrl } = useRoutes();
+
   return (
     <>
       <Global
@@ -38,8 +41,8 @@ export default function PageContainer({
         <meta name="keywords" content={keywords} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content={window?.location.href} />
-        {richPreviewImage && <meta property="og:image" content={`https://mrvallis.co.uk${richPreviewImage.publicURL}`} />}
+        <meta property="og:url" content={currentPath} />
+        {richPreviewImage && <meta property="og:image" content={buildPublicUrl(richPreviewImage.publicURL)} />}
       </Helmet>
       {children}
     </>
