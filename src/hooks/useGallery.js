@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import useWindow from './useWindow';
 import useKeyboard from './useKeyboard';
+import useRoutes from './useRoutes';
 
 const kebabCase = (string) => string.toLowerCase().replaceAll(' ', '-');
 const deDupedList = (list) => Array.from(new Set(list));
@@ -20,10 +21,11 @@ export default function useGallery(images) {
   const [focusedImage, setFocusedImage] = useState();
   const [activeTag, setActiveTag] = useState('Top Picks');
   const { pathname, updatePath } = useWindow();
+  const { buildImagePath } = useRoutes();
 
   const openModalFor = (image) => () => {
     setInitialised(true);
-    updatePath(`/image/${kebabCase(image.title)}`);
+    updatePath(buildImagePath(kebabCase(image.title)));
     setActiveImage(image);
   };
 
@@ -56,6 +58,7 @@ export default function useGallery(images) {
         img: image.large,
         description: image.description,
         title: image.title,
+        publicURL: image.publicURL,
       });
     }
   }, [activeImage, images, initialised, pathname]);
