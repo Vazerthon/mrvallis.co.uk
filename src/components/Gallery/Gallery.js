@@ -6,15 +6,15 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { H2 } from './typography/Headings';
-import Paragraph from './typography/Paragraph';
-import Col from './layout/Col';
-import Modal from './Modal';
-import Button from './Button';
+import { H2 } from '../typography/Headings';
+import Paragraph from '../typography/Paragraph';
+import Col from '../layout/Col';
+import Modal from '../Modal';
+import Button from '../Button';
 
-import useKeyboard from '../hooks/useKeyboard';
+import useKeyboard from '../../hooks/useKeyboard';
 
-import theme from './theme';
+import theme from '../theme';
 
 const darkBackground = css`
   background-color: ${theme.colour.cmyk.key};
