@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import PageContainer from './PageContainer';
-import Gallery from '../Gallery';
+import Gallery from '../Gallery/Gallery';
 import Nav from '../Nav';
 import Row from './Row';
 import {

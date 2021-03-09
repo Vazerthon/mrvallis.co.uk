@@ -74,7 +74,7 @@ export default function Nav({ className }) {
   const toggleDrawer = () => setMobileDrawerOpen(!mobileDrawerOpen);
   const closeDrawer = () => setMobileDrawerOpen(false);
   const Wrapper = mobileDrawerOpen ? FocusTrap : Fragment;
-  const activeUrl = useWindow()?.location?.hash;
+  const { hash } = useWindow();
 
   return (
     <Wrapper>
@@ -92,25 +92,25 @@ export default function Nav({ className }) {
         <List role="list" open={mobileDrawerOpen}>
           <NavListItem
             href="#home"
-            active={activeUrl === '#home'}
+            active={hash === '#home'}
             label="Home"
             onClick={closeDrawer}
           />
           <NavListItem
             href="#about"
-            active={activeUrl === '#about'}
+            active={hash === '#about'}
             label="About"
             onClick={closeDrawer}
           />
           <NavListItem
             href="#contact"
-            active={activeUrl === '#contact'}
+            active={hash === '#contact'}
             label="Contact"
             onClick={closeDrawer}
           />
           <NavListItem
             href="#gallery"
-            active={activeUrl === '#gallery'}
+            active={hash === '#gallery'}
             label="Gallery"
             onClick={closeDrawer}
           />

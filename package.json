@@ -44,10 +44,13 @@
     "start": "npm run develop",
     "build": "gatsby build",
     "develop": "npm run clean && gatsby develop",
-    "lint": "eslint --ext .js ."
+    "lint": "eslint --ext .js .",
+    "serve": "gatsby serve"
   },
   "devDependencies": {
-    "eslint": "^7.17.0",
+    "@babel/core": "^7.13.8",
+    "@babel/eslint-parser": "^7.13.8",
+    "eslint": "^7.21.0",
     "prettier": "^2.2.1"
   }
 }

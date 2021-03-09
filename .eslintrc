@@ -1,7 +1,7 @@
 {
   "extends": "airbnb",
   "env": { "node": true, "jest": true, "browser": true },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "plugins": ["react-hooks"],
   "rules": {
     "linebreak-style": 0,
