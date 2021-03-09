@@ -8,13 +8,14 @@ const defaultSorting = (a, b) => (a > b ? 1 : -1);
 const allTagsIn = (images) =>
   deDupedList(images.flatMap(({ tags }) => tags)).sort(defaultSorting);
 const imageTitleInUrl = (pathname) =>
-  pathname && pathname.match('image/([a-z]-?)*')
+  (pathname && pathname.match('image/([a-z]-?)*')
     ? pathname.split('/')[2]
-    : undefined;
+    : undefined);
 const makeFindImageByTitle = (images) => (title) =>
   images.find((img) => title === kebabCase(img.title));
 
 export default function useGallery(images) {
+  const [initialised, setInitialised] = useState();
   const [activeImage, setActiveImage] = useState();
   const [focusedImage, setFocusedImage] = useState();
   const [activeTag, setActiveTag] = useState('Top Picks');
@@ -32,17 +33,24 @@ export default function useGallery(images) {
 
   const pathname = useWindow()?.location.pathname;
   useEffect(() => {
+    if (initialised) {
+      return;
+    }
+
     const findImageByTitle = makeFindImageByTitle(images);
     const imageTitleFromUrl = imageTitleInUrl(pathname);
     const image = findImageByTitle(imageTitleFromUrl);
+
     if (image && !activeImage) {
+      setInitialised(true);
+
       setActiveImage({
         img: image.large,
         description: image.description,
         title: image.title,
       });
     }
-  }, [images, pathname, setActiveImage]);
+  }, [activeImage, images, initialised, pathname]);
 
   return {
     openModalFor,
