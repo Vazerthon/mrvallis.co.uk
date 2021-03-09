@@ -74,7 +74,8 @@ export default function Nav({ className }) {
   const toggleDrawer = () => setMobileDrawerOpen(!mobileDrawerOpen);
   const closeDrawer = () => setMobileDrawerOpen(false);
   const Wrapper = mobileDrawerOpen ? FocusTrap : Fragment;
-  const activeUrl = useWindow()?.location?.hash;
+  const { window } = useWindow();
+  const activeUrl = window?.location?.hash;
 
   return (
     <Wrapper>

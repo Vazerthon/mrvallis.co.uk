@@ -31,7 +31,7 @@ export default function useGallery(images) {
   const allTags = allTagsIn(images);
   const filteredImages = images.filter(({ tags }) => tags.includes(activeTag));
 
-  const pathname = useWindow()?.location.pathname;
+  const { pathname } = useWindow();
   useEffect(() => {
     if (initialised) {
       return;

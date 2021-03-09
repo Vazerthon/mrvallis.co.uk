@@ -13,6 +13,7 @@ export default function PageContainer({
   keywords,
   richPreviewImage,
 }) {
+  const { window } = useWindow();
   return (
     <>
       <Global
@@ -37,7 +38,7 @@ export default function PageContainer({
         <meta name="keywords" content={keywords} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content={useWindow()?.location.href} />
+        <meta property="og:url" content={window?.location.href} />
         {richPreviewImage && <meta property="og:image" content={`https://mrvallis.co.uk${richPreviewImage.publicURL}`} />}
       </Helmet>
       {children}
