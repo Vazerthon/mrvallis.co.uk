@@ -116,10 +116,10 @@ export default function Gallery({ images }) {
       <Pictures>
         <Masonry>
           {filteredImages.map(
-            ({ small, large, description, id, title }) => (
+            ({ small, large, description, id, title, publicURL }) => (
               <ImageWrapper
                 key={id}
-                onClick={openModalFor({ img: large, description, title })}
+                onClick={openModalFor({ img: large, description, title, publicURL })}
                 onFocus={() => setFocusedImage({ img: large, description, title })}
                 onKeyDown={keyboardHandlers}
                 tabIndex={0}
@@ -153,8 +153,7 @@ Gallery.propTypes = {
       small: PropTypes.object,
       // eslint-disable-next-line react/forbid-prop-types
       large: PropTypes.object,
-      // eslint-disable-next-line react/forbid-prop-types
-      fluid: PropTypes.object,
+      publicURL: PropTypes.string,
     }),
   ).isRequired,
 };

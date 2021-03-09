@@ -25,6 +25,7 @@ export default function IndexPage({ data }) {
     description: node.frontmatter.description,
     id: node.id,
     tags: node.frontmatter.tags?.map(capitaliseAllWords) || [],
+    publicURL: node.frontmatter.large.publicURL,
   }));
 
   return (
@@ -135,6 +136,7 @@ export const pageQuery = graphql`query IndexPageTemplate {
             }
           }
           large: image {
+            publicURL
             childImageSharp {
               gatsbyImageData(
                 layout: FULL_WIDTH

@@ -2,12 +2,15 @@ import PropTypes from 'prop-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { Helmet } from 'react-helmet';
 
 import { H2 } from '../typography/Headings';
 import Paragraph from '../typography/Paragraph';
 import Modal from '../Modal';
 
 import theme from '../theme';
+import useWindow from '../../hooks/useWindow';
+import useRoutes from '../../hooks/useRoutes';
 
 const darkBackground = css`
   background-color: ${theme.colour.cmyk.key};
@@ -36,6 +39,9 @@ const LargeImageTextContainer = styled.div`
 `;
 
 export default function LargeImageModal({ open, onClickOutside, onCloseClick, image }) {
+  const { currentUrl } = useWindow();
+  const { buildPublicUrl } = useRoutes();
+
   return (
     <Modal
       open={open}
@@ -43,6 +49,12 @@ export default function LargeImageModal({ open, onClickOutside, onCloseClick, im
       onCloseClick={onCloseClick}
       contentContainerStyles={darkBackground}
     >
+      <Helmet>
+        <meta property="og:title" content={`Mr. Vallis | ${image.title}`} />
+        <meta property="og:description" content={image.description} />
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:image" content={buildPublicUrl(image.publicURL)} />
+      </Helmet>
       <LargeImage image={image.img} alt={image.description} />
       <LargeImageTextContainer>
         <div>
@@ -65,6 +77,7 @@ LargeImageModal.propTypes = {
   image: PropTypes.shape({
     description: PropTypes.string,
     title: PropTypes.string,
+    publicURL: PropTypes.string,
     // eslint-disable-next-line react/forbid-prop-types
     img: PropTypes.object,
   }).isRequired,
