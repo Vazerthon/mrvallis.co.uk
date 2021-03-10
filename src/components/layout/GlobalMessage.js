@@ -8,15 +8,15 @@ const GlobalMessageWindow = styled.div`
   top: 50%;
   left: calc(50% - ${theme.spacing.units(28)});
   width: ${theme.spacing.units(56)};
-  height: ${theme.spacing.units(12)};
-  border: white 1px solid;
-  border-radius: ${theme.spacing.units(2)};
+  height: ${theme.spacing.units(6)};
+  border: ${theme.colour.cmyk.key} 1px solid;
   color: ${theme.colour.cmyk.key};
   background-color: ${theme.colour.cmyk.cyan};
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
+  transform: rotate(-3deg);
 
   transition: all 300ms ease-in;
 
