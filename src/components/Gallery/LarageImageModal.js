@@ -26,6 +26,11 @@ const LargeImage = styled(GatsbyImage)`
   }
 `;
 
+const Title = styled(H2)`
+  display: flex;
+  align-items: center;
+`;
+
 const LargeImageTextContainer = styled.div`
   position: relative;
   left: ${theme.spacing.units(-8)};
@@ -64,14 +69,14 @@ export default function LargeImageModal({
       <LargeImage image={image.img} alt={image.description} />
       <LargeImageTextContainer>
         <div>
-          <H2 dark smallOnMobile>
+          <Title dark smallOnMobile>
             {image.title}
             <ShareButton
               clipboardContent={currentPath}
-              successText="URL copied"
+              successText="Address copied"
               smallOnMobile
             />
-          </H2>
+          </Title>
           <Paragraph dark smallOnMobile>
             {image.description}
           </Paragraph>

@@ -17,9 +17,11 @@ const SmallButton = styled.button`
   cursor: pointer;
   border-radius: 50%;
   display: flex;
-  width: ${theme.spacing.units(8)};
-  height: ${theme.spacing.units(8)};
+  width: ${theme.spacing.units(6)};
+  height: ${theme.spacing.units(6)};
+  margin-left: ${theme.spacing.units(2)};
   align-items: center;
+  display: inline-flex;
 
   :hover,
   :focus {
@@ -27,8 +29,8 @@ const SmallButton = styled.button`
   }
 
   ${({ smallOnMobile }) => smallOnMobile && media('<=tablet')} {
-    width: ${theme.spacing.units(5)};
-    height: ${theme.spacing.units(5)};
+    width: ${theme.spacing.units(4)};
+    height: ${theme.spacing.units(4)};
   }
 `;
 
