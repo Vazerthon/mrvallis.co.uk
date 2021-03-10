@@ -19,6 +19,7 @@ const SmallButton = styled.button`
   display: flex;
   width: ${theme.spacing.units(6)};
   height: ${theme.spacing.units(6)};
+  padding: ${theme.spacing.units(0.5)};
   margin-left: ${theme.spacing.units(2)};
   align-items: center;
   display: inline-flex;
