@@ -25,6 +25,8 @@ import { H1, H2, H3 } from '../typography/Headings';
 import Link from '../Link';
 import Separator from './Separator';
 import ProfilePicture from '../ProfilePicture';
+import GlobalMessage from './GlobalMessage';
+import useWindow from '../../hooks/useWindow';
 
 const MainNav = styled(Nav)`
   text-align: right;
@@ -57,6 +59,7 @@ export default function IndexPageTemplate({
 }) {
   const { email, twitter, github, blurb } = contact;
   const { keywords, pageDescription, richPreviewImage, pageTitle } = hidden;
+  const { isClient } = useWindow();
 
   const contacts = [
     {
@@ -145,6 +148,7 @@ export default function IndexPageTemplate({
           <Separator />
         </FooterContainer>
       </Grid>
+      { isClient && <GlobalMessage /> }
     </PageContainer>
   );
 }

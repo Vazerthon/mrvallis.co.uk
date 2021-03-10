@@ -11,6 +11,7 @@ import Modal from '../Modal';
 import theme from '../theme';
 import useWindow from '../../hooks/useWindow';
 import useRoutes from '../../hooks/useRoutes';
+import ShareButton from '../ShareButton';
 
 const darkBackground = css`
   background-color: ${theme.colour.cmyk.key};
@@ -23,6 +24,11 @@ const LargeImage = styled(GatsbyImage)`
     max-height: 70vh;
     box-sizing: border-box;
   }
+`;
+
+const Title = styled(H2)`
+  display: flex;
+  align-items: center;
 `;
 
 const LargeImageTextContainer = styled.div`
@@ -38,8 +44,13 @@ const LargeImageTextContainer = styled.div`
   }
 `;
 
-export default function LargeImageModal({ open, onClickOutside, onCloseClick, image }) {
-  const { currentUrl } = useWindow();
+export default function LargeImageModal({
+  open,
+  onClickOutside,
+  onCloseClick,
+  image,
+}) {
+  const { currentPath } = useWindow();
   const { buildPublicUrl } = useRoutes();
 
   return (
@@ -52,15 +63,20 @@ export default function LargeImageModal({ open, onClickOutside, onCloseClick, im
       <Helmet>
         <meta property="og:title" content={`Mr. Vallis | ${image.title}`} />
         <meta property="og:description" content={image.description} />
-        <meta property="og:url" content={currentUrl} />
+        <meta property="og:url" content={currentPath} />
         <meta property="og:image" content={buildPublicUrl(image.publicURL)} />
       </Helmet>
       <LargeImage image={image.img} alt={image.description} />
       <LargeImageTextContainer>
         <div>
-          <H2 dark smallOnMobile>
+          <Title dark smallOnMobile>
             {image.title}
-          </H2>
+            <ShareButton
+              clipboardContent={currentPath}
+              successText="Address copied"
+              smallOnMobile
+            />
+          </Title>
           <Paragraph dark smallOnMobile>
             {image.description}
           </Paragraph>

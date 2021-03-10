@@ -1,9 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { Global, css } from '@emotion/react';
+
 import useWindow from '../../hooks/useWindow';
 import useRoutes from '../../hooks/useRoutes';
+import { GlobalMessageProvider } from '../../context/GlobalMessageContext';
 
 import theme from '../theme';
 
@@ -18,7 +19,7 @@ export default function PageContainer({
   const { buildPublicUrl } = useRoutes();
 
   return (
-    <>
+    <GlobalMessageProvider>
       <Global
         styles={css`
           html {
@@ -45,7 +46,7 @@ export default function PageContainer({
         {richPreviewImage && <meta property="og:image" content={buildPublicUrl(richPreviewImage.publicURL)} />}
       </Helmet>
       {children}
-    </>
+    </GlobalMessageProvider>
   );
 }
 

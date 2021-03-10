@@ -17,6 +17,7 @@ export const H2 = styled.h2`
 
   ${({ smallOnMobile }) => smallOnMobile && media('<=tablet')} {
     font-size: ${theme.spacing.units(4)};
+    line-height: ${theme.spacing.units(4)};
     margin: 0;
   }
 `;
