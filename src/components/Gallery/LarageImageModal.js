@@ -11,6 +11,7 @@ import Modal from '../Modal';
 import theme from '../theme';
 import useWindow from '../../hooks/useWindow';
 import useRoutes from '../../hooks/useRoutes';
+import ShareButton from '../ShareButton';
 
 const darkBackground = css`
   background-color: ${theme.colour.cmyk.key};
@@ -39,7 +40,7 @@ const LargeImageTextContainer = styled.div`
 `;
 
 export default function LargeImageModal({ open, onClickOutside, onCloseClick, image }) {
-  const { currentUrl } = useWindow();
+  const { currentPath } = useWindow();
   const { buildPublicUrl } = useRoutes();
 
   return (
@@ -52,15 +53,14 @@ export default function LargeImageModal({ open, onClickOutside, onCloseClick, im
       <Helmet>
         <meta property="og:title" content={`Mr. Vallis | ${image.title}`} />
         <meta property="og:description" content={image.description} />
-        <meta property="og:url" content={currentUrl} />
+        <meta property="og:url" content={currentPath} />
         <meta property="og:image" content={buildPublicUrl(image.publicURL)} />
       </Helmet>
       <LargeImage image={image.img} alt={image.description} />
+      <ShareButton clipboardContent={currentPath} successText="URL copied" smallOnMobile />
       <LargeImageTextContainer>
         <div>
-          <H2 dark smallOnMobile>
-            {image.title}
-          </H2>
+          <H2 dark smallOnMobile>{image.title}</H2>
           <Paragraph dark smallOnMobile>
             {image.description}
           </Paragraph>

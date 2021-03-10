@@ -14,6 +14,7 @@ export default function useWindow() {
       currentPath: window.location.href,
       hash: window.location.hash,
       search: window.location.search,
+      addToClipboard: (content) => window.navigator.clipboard.writeText(content),
     }
     : {};
 }
