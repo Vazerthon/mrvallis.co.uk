@@ -39,7 +39,12 @@ const LargeImageTextContainer = styled.div`
   }
 `;
 
-export default function LargeImageModal({ open, onClickOutside, onCloseClick, image }) {
+export default function LargeImageModal({
+  open,
+  onClickOutside,
+  onCloseClick,
+  image,
+}) {
   const { currentPath } = useWindow();
   const { buildPublicUrl } = useRoutes();
 
@@ -57,10 +62,16 @@ export default function LargeImageModal({ open, onClickOutside, onCloseClick, im
         <meta property="og:image" content={buildPublicUrl(image.publicURL)} />
       </Helmet>
       <LargeImage image={image.img} alt={image.description} />
-      <ShareButton clipboardContent={currentPath} successText="URL copied" smallOnMobile />
       <LargeImageTextContainer>
         <div>
-          <H2 dark smallOnMobile>{image.title}</H2>
+          <H2 dark smallOnMobile>
+            {image.title}
+            <ShareButton
+              clipboardContent={currentPath}
+              successText="URL copied"
+              smallOnMobile
+            />
+          </H2>
           <Paragraph dark smallOnMobile>
             {image.description}
           </Paragraph>

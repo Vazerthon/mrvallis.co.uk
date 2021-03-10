@@ -9,6 +9,7 @@ export default function useWindow() {
 
   return isClient
     ? {
+      isClient,
       window,
       updatePath: (path) => window.history.pushState({}, undefined, path),
       currentPath: window.location.href,
@@ -16,5 +17,7 @@ export default function useWindow() {
       search: window.location.search,
       addToClipboard: (content) => window.navigator.clipboard.writeText(content),
     }
-    : {};
+    : {
+      isClient,
+    };
 }
