@@ -6,6 +6,5 @@ exports.createPages = ({ actions }) => {
   createPage({
     path: '/',
     component: path.resolve('src/templates/index-page.js'),
-    matchPath: '*',
   });
 };

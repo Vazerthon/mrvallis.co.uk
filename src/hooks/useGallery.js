@@ -8,10 +8,7 @@ const deDupedList = (list) => Array.from(new Set(list));
 const defaultSorting = (a, b) => (a > b ? 1 : -1);
 const allTagsIn = (images) =>
   deDupedList(images.flatMap(({ tags }) => tags)).sort(defaultSorting);
-const imageTitleInUrl = (pathname) =>
-  (pathname && pathname.match('image/([a-z]-?)*')
-    ? pathname.split('/')[2]
-    : undefined);
+
 const makeFindImageByTitle = (images) => (title) =>
   images.find((img) => title === kebabCase(img.title));
 
@@ -20,8 +17,8 @@ export default function useGallery(images) {
   const [activeImage, setActiveImage] = useState();
   const [focusedImage, setFocusedImage] = useState();
   const [activeTag, setActiveTag] = useState('Top Picks');
-  const { pathname, updatePath } = useWindow();
-  const { buildImagePath } = useRoutes();
+  const { search, updatePath } = useWindow();
+  const { buildImagePath, getTitleFromImagePath } = useRoutes();
 
   const openModalFor = (image) => () => {
     setInitialised(true);
@@ -48,7 +45,7 @@ export default function useGallery(images) {
     }
 
     const findImageByTitle = makeFindImageByTitle(images);
-    const imageTitleFromUrl = imageTitleInUrl(pathname);
+    const imageTitleFromUrl = getTitleFromImagePath(search);
     const image = findImageByTitle(imageTitleFromUrl);
 
     if (image && !activeImage) {
@@ -61,7 +58,7 @@ export default function useGallery(images) {
         publicURL: image.publicURL,
       });
     }
-  }, [activeImage, images, initialised, pathname]);
+  }, [activeImage, getTitleFromImagePath, images, initialised, search]);
 
   return {
     openModalFor,

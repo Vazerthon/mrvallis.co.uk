@@ -27,6 +27,7 @@
     "gatsby-transformer-sharp": "^3.0.0",
     "netlify-cms-app": "^2.14.10",
     "prop-types": "^15.7.2",
+    "qs": "^6.7.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-feather": "^2.0.9",
