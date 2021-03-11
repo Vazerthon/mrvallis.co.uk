@@ -1,5 +1,6 @@
 backend:
   name: github
+  repo: vazerthon/mrvallis.co.uk
   branch: main
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
