@@ -44,7 +44,7 @@ const MobileFilters = styled(Col)`
 const Pictures = styled.div`
   grid-area: pictures;
 
-  columns: calc(150px + ${theme.spacing.units(1)}) 6;
+  columns: calc(240px + ${theme.spacing.units(1)}) 6;
   column-gap: 0;
 `;
 
