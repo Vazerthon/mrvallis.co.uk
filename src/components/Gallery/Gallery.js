@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import media from 'css-in-js-media';
-import Masonry from 'react-masonry-component';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 
 import Col from '../layout/Col';
 import Button from '../Button';
@@ -12,34 +10,6 @@ import LargeImageModal from './LarageImageModal';
 import useGallery from '../../hooks/useGallery';
 
 import theme from '../theme';
-
-const desktopPlus = css`
-  ${media('<desktop')} {
-    display: none;
-  }
-`;
-
-const lessThanDesktop = css`
-  ${media('>=desktop')} {
-    display: none;
-  }
-`;
-
-const ImageWrapper = styled.div`
-  margin: 0;
-  outline: none;
-  cursor: pointer;
-
-  .gatsby-image-wrapper {
-    border: ${theme.spacing.units(0.5)} solid transparent;
-  }
-
-  :focus {
-    .gatsby-image-wrapper {
-      border-color: ${theme.colour.cmyk.cyan};
-    }
-  }
-`;
 
 const Grid = styled.div`
   display: grid;
@@ -59,8 +29,40 @@ const Filters = styled.div`
   grid-area: filters;
 `;
 
+const DesktopFilters = styled(Col)`
+  ${media('<desktop')} {
+    display: none;
+  }
+`;
+
+const MobileFilters = styled(Col)`
+  ${media('>=desktop')} {
+    display: none;
+  }
+`;
+
 const Pictures = styled.div`
   grid-area: pictures;
+
+  columns: calc(240px + ${theme.spacing.units(1)}) 6;
+  column-gap: 0;
+`;
+
+const ImageWrapper = styled.div`
+  margin: 0;
+  outline: none;
+  display: inline-block;
+  cursor: pointer;
+
+  .gatsby-image-wrapper {
+    border: ${theme.spacing.units(0.5)} solid transparent;
+  }
+
+  :focus {
+    .gatsby-image-wrapper {
+      border-color: ${theme.colour.cmyk.cyan};
+    }
+  }
 `;
 
 const Select = styled.select`
@@ -89,7 +91,7 @@ export default function Gallery({ images }) {
   return (
     <Grid>
       <Filters>
-        <Col css={desktopPlus}>
+        <DesktopFilters>
           {allTags.map((tag) => (
             <Button
               key={tag}
@@ -100,8 +102,8 @@ export default function Gallery({ images }) {
               {tag}
             </Button>
           ))}
-        </Col>
-        <Col css={lessThanDesktop}>
+        </DesktopFilters>
+        <MobileFilters>
           <Select
             aria-label="Select gallery filter"
             value={activeTag}
@@ -111,26 +113,24 @@ export default function Gallery({ images }) {
               <option key={tag}>{tag}</option>
             ))}
           </Select>
-        </Col>
+        </MobileFilters>
       </Filters>
       <Pictures>
-        <Masonry>
-          {filteredImages.map(
-            ({ small, large, description, id, title, publicURL }) => (
-              <ImageWrapper
-                key={id}
-                onClick={openModalFor({ img: large, description, title, publicURL })}
-                onFocus={() => setFocusedImage({ img: large, description, title })}
-                onKeyDown={keyboardHandlers}
-                tabIndex={0}
-              >
-                <GatsbyImage
-                  image={small}
-                  alt={description}
-                />
-              </ImageWrapper>
-            ))}
-        </Masonry>
+        {filteredImages.map(
+          ({ small, large, description, id, title, publicURL }) => (
+            <ImageWrapper
+              key={id}
+              onClick={openModalFor({ img: large, description, title, publicURL })}
+              onFocus={() => setFocusedImage({ img: large, description, title })}
+              onKeyDown={keyboardHandlers}
+              tabIndex={0}
+            >
+              <GatsbyImage
+                image={small}
+                alt={description}
+              />
+            </ImageWrapper>
+          ))}
         {activeImage && (
         <LargeImageModal
           open

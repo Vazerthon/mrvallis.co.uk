@@ -129,7 +129,7 @@ export const pageQuery = graphql`query IndexPageTemplate {
           small: image {
             childImageSharp {
               gatsbyImageData(
-                width: 150
+                width: 240
                 layout: FIXED
                 formats: [AUTO, WEBP]
               )
