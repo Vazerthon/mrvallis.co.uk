@@ -5,7 +5,6 @@ title: The Captain
 description: The Edinburgh Captain and Lass looking over Edinburgh
 tags:
   - Scotland
-  - Landscape
   - City
   - Monochrome
 ---

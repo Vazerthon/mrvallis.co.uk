@@ -5,5 +5,4 @@ title: Dik-dik Portrait
 description: A brave male Dik-dik getting close to the camera
 tags:
   - Travel
-  - Landscape
 ---
