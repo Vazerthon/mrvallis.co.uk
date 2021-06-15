@@ -10,7 +10,7 @@ about: >-
   Photography has been a part of my life for a long time, it's a creative outlet that has lead me from taking snaps of my mates riding bikes, to night club photography, weddings, events, travel, wildlife and theatre. I prefer not to specialise in one particular area of photography, keeping an open mind and trying new techniques as I discover them.
 
   I hope you enjoy taking a look around the gallery below. If you have any comments or feedback I'd love to hear from you!
-picture: /img/me-tintype.jpg
+picture: /img/me-on-green-wall-square-.jpg
 contact:
   email: contact@mrvallis.co.uk
   twitter: vazerthon
