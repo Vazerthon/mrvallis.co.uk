@@ -12,11 +12,11 @@ about: >-
   I hope you enjoy taking a look around the gallery below. If you have any comments or feedback I'd love to hear from you!
 picture: /img/me-on-green-wall-square-.jpg
 contact:
-  email: contact@mrvallis.co.uk
-  twitter: vazerthon
+  email: contact.7ji2l@simplelogin.com
+  twitter: deleted
   github: vazerthon
   blurb: If you'd like to get in touch or take a look at other projects I'm
-    involed in you can find me on GitHub or Twitter, or you can email me
+    involed in you can find me on GitHub or you can email me
 hidden:
   pageDescription: Just a guy on the internet who makes software for a living and
     takes photos for fun
